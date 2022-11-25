@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="gridEngine.css">
+
+</head>
+<body>
+    <div id="outside-grid">
+        <nav class="outside-grid-item primary-nav-bar bar" id="primary-nav-bar">
+            <div class="logo">
+                <img src="swift.png" alt="logo" class="logo-image">
+                Swift
+            </div>
+            <div class="project-name">AADIL.proj</div>
+            <div class="login-details">AADIL ZAHEER KHAN &cir;</div>
+        </nav>
+        <nav class="outside-grid-item secondary-nav-bar bar" id="secondary-nav-bar">
+            <div class="project-operations">
+                <button class="file-btn"></button>
+                <button class="save-btn"></button>
+                <button class="print-btn"></button>
+                <button class="undo-btn"></button>
+                <button class="redo-btn"></button>
+                <button class="redo-btn" onclick="defaultTransform()"></button>
+
+            </div>
+            <div class="component-values">
+
+            </div>
+        </nav>
+        <div class="outside-grid-item main-tool-bar tool-bar" id="main-tool-bar">
+            <button class="move-btn" onclick="toggleMovingMode()""></button>
+            <button class="wiring-btn" onclick="toggleWiringMode()"></button>
+            <button class="zoom-btn"></button>
+            <button class="components-btn" draggable="true" ondragstart="startDragging(event)"></button>
+            <button class="ic-btn"></button>
+            <button class="text-btn"></button>
+        </div>
+        <div class="outside-grid-item secondary-tool-bar tool-bar" id="secondary-tool-bar">
+            <div class="display-component">
+                
+            </div>
+            <div class="components-in">
+
+            </div>
+        </div>
+        <div class="outside-grid-item information-bar">cool</div>
+        <div class="outside-grid-item toggle-visibility-bar" onclick="toggleVisibility(this)">cool</div>
+    </div>
+    <div id="grid-container-placement-class">
+        <div id="grid-placement-container"></div>   
+        <div id="grid-container"></div> 
+    </div>
+    <script src="gridEngine.js" ></script>
+</body>
+</html>
