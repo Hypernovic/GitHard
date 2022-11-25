@@ -5,26 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="gridEngine.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
 
 </head>
 <body>
     <div id="outside-grid">
         <nav class="outside-grid-item primary-nav-bar bar" id="primary-nav-bar">
             <div class="logo">
-                <img src="swift.png" alt="logo" class="logo-image">
-                Swift
+                <img src="logo.png" alt="logo" class="logo-image">
             </div>
             <div class="project-name">AADIL.proj</div>
-            <div class="login-details">AADIL ZAHEER KHAN &cir;</div>
+            <div class="login-details">AADIL ZAHEER KHAN 
+                <span class="user-image">
+                    <img src="" alt="">
+                </span>
+            </div>
         </nav>
         <nav class="outside-grid-item secondary-nav-bar bar" id="secondary-nav-bar">
             <div class="project-operations">
-                <button class="file-btn"></button>
-                <button class="save-btn"></button>
-                <button class="print-btn"></button>
-                <button class="undo-btn"></button>
-                <button class="redo-btn"></button>
-                <button class="redo-btn" onclick="defaultTransform()"></button>
+                <button class="file-btn bi bi-files btn btn-primary"></button>
+                <button class="save-btn bi bi-save2 btn btn-primary"></button>
+                <button class="print-btn bi bi-printer btn btn-primary"></button>
+                <button class="undo-btn bi bi-arrow-return-left btn btn-primary"></button>
+                <button class="redo-btn bi bi-arrow-return-right btn btn-primary"></button>
+                <button class="reset-btn bi bi-arrow-90deg-up btn btn-primary" onclick="defaultTransform()"></button>
 
             </div>
             <div class="component-values">
@@ -32,28 +38,42 @@
             </div>
         </nav>
         <div class="outside-grid-item main-tool-bar tool-bar" id="main-tool-bar">
-            <button class="move-btn" onclick="toggleMovingMode()""></button>
-            <button class="wiring-btn" onclick="toggleWiringMode()"></button>
-            <button class="zoom-btn"></button>
-            <button class="components-btn" draggable="true" ondragstart="startDragging(event)"></button>
-            <button class="ic-btn"></button>
-            <button class="text-btn"></button>
+            <button class="move-btn bi bi-arrows-move btn btn-light" onclick="toggleMovingMode()"></button>
+            <button class="wiring-btn bi bi-crop btn btn-light" onclick="toggleWiringMode()"></button>
+            <!-- <button class="zoom-btn bi bi-zoom-in" onclick="toggleMovingMode()"></button> -->
+            <button class="components-btn bi bi-hash btn btn-light" onclick="toggleComponentsMode()"></button>
+            <!-- draggable="true" ondragstart="startDragging(event) -->
+            <button class="ic-btn bi bi-dice-6-fill btn btn-light" onclick="toggleIcMode()"></button>
         </div>
         <div class="outside-grid-item secondary-tool-bar tool-bar" id="secondary-tool-bar">
-            <div class="display-component">
+            <div class="title-component">
                 
             </div>
-            <div class="components-in">
+            <div class="display-component">
+                <canvas id="the-canvas">
 
+                </canvas>
+            </div>
+            <div class="components-in">
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-dark">Resistor</button>
+                    <!-- make it draggable -->
+                    <button type="button" class="btn btn-dark">Diode</button>
+                    <button type="button" class="btn btn-dark">Zener</button>
+                    <button type="button" class="btn btn-dark">GND</button>
+                    <button type="button" class="btn btn-dark">Capacitor</button>
+                </div>
             </div>
         </div>
         <div class="outside-grid-item information-bar">cool</div>
-        <div class="outside-grid-item toggle-visibility-bar" onclick="toggleVisibility(this)">cool</div>
+        <div class="outside-grid-item toggle-visibility-bar bi bi-eye-fill" onclick="toggleVisibility(this)"></div>
     </div>
     <div id="grid-container-placement-class">
         <div id="grid-placement-container"></div>   
         <div id="grid-container"></div> 
     </div>
     <script src="gridEngine.js" ></script>
+    <!-- <script src="gridZoomAndPanning.js" ></script> -->
+    <script src="gridWiring.js" ></script>
 </body>
 </html>
