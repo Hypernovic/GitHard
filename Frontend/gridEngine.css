@@ -235,3 +235,21 @@ body{
     height: 100%;
     width: 100%;
 }
+
+
+
+#attached{
+    display: flex;
+    flex-direction: column;
+    padding: 5%;
+    justify-content: space-between;
+}
+
+#attached button{
+    margin-top: 10px;
+}
+
+#the-canvas{
+    height: 100%;
+    width: 100%;
+}

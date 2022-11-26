@@ -51,19 +51,7 @@ createGrid();
 
 const allElements = wrapper.querySelectorAll('.grid-item');
 
-function dropInGridTile(e){
-    
-}
 
-
-function dragOverInGridTile(e){
-
-}
-
-
-function onLeaveInGridTile(e){
-
-}
 
 
 
@@ -125,12 +113,15 @@ function toggleWiringMode(){
 function toggleComponentsMode(){
     mode="components"
     toggleVisibilitySecondaryToolBar("Components")
+    componentDesign()
 }
 
 
 function toggleIcMode(){
     mode="boards"
     toggleVisibilitySecondaryToolBar("Boards")
+    boardDesign()
+
 }
 
 
