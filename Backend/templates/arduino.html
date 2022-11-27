@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        width: 98vw;
+        height: 97vh;
+    }
+
+    .flex-box{
+        height: inherit;
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        z-index: -1;
+    }
+
+    .text{
+        height: 80%;
+
+    }
+
+    .black{
+        background-color: black;
+        height: 20%;
+        color: aliceblue;
+    }
+
+    .overlay{
+
+        top:0px;
+        height: 98vh;
+        width: 98vw;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        opacity: 0.5;
+        z-index: 10;
+    }
+
+</style>
+<body>
+    <div class="flex-box">
+            <textarea class="text">
+/*
+  Blink
+  Turns on an LED on for one second, then off for one second, repeatedly.
+
+  This example code is in the public domain.
+ */
+
+// Pin 13 has an LED connected on most Arduino boards.
+// give it a name:
+int led = 13;
+
+// the setup routine runs once when you press reset:
+void setup() {
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);
+}
+
+// the loop routine runs over and over again forever:
+void loop() {
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);               // wait for a second
+  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);               // wait for a second
+}
+            </textarea>    
+        <section class="black">
+                Compiling....
+        </section>
+    
+    </div>
+    <div class="overlay">
+        <div>
+    
+        </div>
+        <img src="{{ url_for('static',     filename='images/progress.png') }}" class="img">
+        <div>
+    
+        </div>
+    </div>
+</body>
+
+</html>

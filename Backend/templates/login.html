@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static',     filename='css/loginstyle.css') }}">
+  <script src="https://kit.fontawesome.com/59784df54a.js" crossorigin="anonymous"></script>
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="github-logo">
+      <img src="{{ url_for('static',     filename='images/logo.png') }}" />
+    </div>
+    <h1 class="github-head">
+      Sign in to GitHard
+    </h1>
+    <h3 class="title">Login</h3>
+    <div class="login-wrapper">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="notification is-danger">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+        {% endwith %}
+        <form method="POST" action="/login">
+            <div class="input-box">
+                <input type="text" name="email" placeholder="Your UserName" autofocus="">
+            </div>
+
+            <div class="input-box">
+                    <input type="password" name="password" placeholder="Your Password">
+            </div>
+            
+            <button class="submit-btn">Login</button>
+        </form>
+    </div>
+  </div>
+ 
+</body>
+
+</html>

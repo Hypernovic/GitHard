@@ -1,0 +1,18 @@
+
+  
+  img {
+    margin: 18px 0px;
+  }
+  
+  .HTMLContainer {
+    width: 100%;
+    min-height: 300px;
+    border: dashed 2px #d8e3fa;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+  }
+  

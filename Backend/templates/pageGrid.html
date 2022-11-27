@@ -5,24 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="gridEngine.css">
+    <link rel="stylesheet" href="{{ url_for('static',     filename='css/gridEngine.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <script
   src="https://code.jquery.com/jquery-3.6.1.slim.min.js"
   integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA="
   crossorigin="anonymous"></script>
 
-
-
 </head>
 <body>
     <div id="outside-grid">
         <nav class="outside-grid-item primary-nav-bar bar" id="primary-nav-bar">
             <div class="logo">
-                <img src="logo.png" alt="logo" class="logo-image">
+                <img src="{{ url_for('static',     filename='images/logo.png') }}" alt="logo" class="logo-image">
             </div>
             <div class="project-name">SCHEMATIC DESIGNER</div>
-            <div class="login-details">AADIL ZAHEER KHAN
+            <div class="login-details">{{ name }}
                 <span class="user-image">
                     <img src="" alt="">
                 </span>
@@ -82,10 +80,10 @@
         <div id="grid-placement-container"></div>   
         <div id="grid-container"></div> 
     </div>
-    <script src="gridEngine.js" ></script>
-    <script src="gridZoomAndPanning.js" ></script>
-    <script src="gridWiring.js" ></script>
-    <script src="cktDesign.js"></script>
-    <script src="gridDrops.js"></script>
+    <script src="{{ url_for('static',     filename='javascript/gridEngine.js') }}" ></script>
+    <script src="{{ url_for('static',     filename='javascript/gridZoomAndPanning.js') }}" ></script>
+    <script src="{{ url_for('static',     filename='javascript/gridWiring.js') }}" ></script>
+    <script src="{{ url_for('static',     filename='javascript/cktDesign.js') }}"></script>
+    <script src="{{ url_for('static',     filename='javascript/gridDrops.js') }}"></script>
 </body>
 </html>
