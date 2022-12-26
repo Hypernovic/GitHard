@@ -3,11 +3,10 @@ const link="http://127.0.0.1:5000"
 
 
 
-who=document.getElementById('nameof').innerHTML
 
 function addFetch(){
     $(".repoList").empty()
-    fetch(link+"/getRepo/"+who,{
+    fetch(link+"/getRepo",{
     method:"GET",   
     headers: {
         'Content-Type': 'application/json',

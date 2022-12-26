@@ -25,12 +25,14 @@ if ENV=="dev":
 else:
     app.debug=False
 
+app.debug=True    
 
 
 app.config['SECRET_KEY'] = 'secret-key-goes-here'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:12345678@localhost/git'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']=False
-app.app_context().push()
+app.config['DEBUG'] = True
+
 
 
 
@@ -39,6 +41,9 @@ db = SQLAlchemy(app)
 
 login_manager = LoginManager(app)
 login_manager.login_view = 'auth.login'
+
+
+app.app_context().push()
 
 
 
@@ -81,48 +86,46 @@ AdminUser={'root':'12345678'}
 from models import User,Repo,AllowList
 
 
-# def fetchReposOfUser(userName):
+# # def fetchReposOfUser(userName):
 
 
-@app.route('/insertRepo',methods=["POST"])
-def insertRepo():
-    who=(request.get_json("who")).get('who')
-    title=(request.get_json("title")).get('title')
-    desc=(request.get_json("desc")).get('desc')
-    allowAccess=(request.get_json("allowAccess")).get('allowAccess')
+# @app.route('/insertRepo',methods=["POST"])
+# def insertRepo():
+#     who=(request.get_json("who")).get('who')
+#     title=(request.get_json("title")).get('title')
+#     desc=(request.get_json("desc")).get('desc')
+#     allowAccess=(request.get_json("allowAccess")).get('allowAccess')
 
-    fname=createUserRepo(who,title)
+#     fname=createUserRepo(who,title)
 
-    if who=="hypernovic":
-        no=1
-        access=2
-    else:
-        no=2
-        access=1
+#     if who=="hypernovic":
+#         no=1
+#         access=2
+#     else:
+#         no=2
+#         access=1
 
-    db.session.add(Repo(title=title,desc=desc,repoOwner=no,repoLocation=fname))
+#     db.session.add(Repo(title=title,desc=desc,repoOwner=no,repoLocation=fname))
 
-    last=db.session.query(Repo).order_by(Repo.repoId.desc()).first()
+#     last=db.session.query(Repo).order_by(Repo.repoId.desc()).first()
     
-    if allowAccess:
-        db.session.add(AllowList(userId=access,repoId=last.repoId))
+#     if allowAccess:
+#         db.session.add(AllowList(userId=access,repoId=last.repoId))
 
-    db.session.commit()
-    return jsonify(status=200)
+#     db.session.commit()
+#     return jsonify(status=200)
 
 
-@app.route('/getRepo/<string:username>',methods=["GET"])
-def getRepo(username):
-    print(username)
-    userId=User.query.filter_by(userName=username).first().id
-    checkquery = Repo.query.filter_by(repoOwner=userId).all()
-    userDict = []
-    for i in checkquery:
-        userDict.append(i.toDict())
-    return jsonify({"users":userDict})
+
+
+
+
+
+
 
 
 if __name__ == '__main__':
     #app.run(threaded=True)
     #host="127.0.0.1", port=8080, threaded=True host="192.168.137.1", port=5000, threaded=True
-    app.run(host="127.0.0.1", port=8080, threaded=True,debug=True)
+    print("something")
+    app.run(host="127.0.0.1", port="8080", threaded=True)

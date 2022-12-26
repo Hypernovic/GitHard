@@ -22,9 +22,10 @@ def addfiletoRepo(location,filename):
 def getRepoFiles(location):
     obj = os.scandir(location)
     a=[]
+    print(obj)
     for entry in obj:
         if entry.is_dir() or entry.is_file():
-            a.append(entry.name)
+            a.append([entry.name,entry.path])
     return a
 
 
@@ -34,3 +35,6 @@ def getRepoFileContent(location,fileName):
 
 def writeToRepoFile(location,filename):
     return True
+
+if __name__=="__main__":
+    print(getRepoFiles(r"c:\Users\Aadil\Documents\GitHub\FOSS-united-centurition-hackathon\Backend\re\hypernovic"))
