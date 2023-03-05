@@ -86,42 +86,6 @@ AdminUser={'root':'12345678'}
 from models import User,Repo,AllowList
 
 
-# # def fetchReposOfUser(userName):
-
-
-# @app.route('/insertRepo',methods=["POST"])
-# def insertRepo():
-#     who=(request.get_json("who")).get('who')
-#     title=(request.get_json("title")).get('title')
-#     desc=(request.get_json("desc")).get('desc')
-#     allowAccess=(request.get_json("allowAccess")).get('allowAccess')
-
-#     fname=createUserRepo(who,title)
-
-#     if who=="hypernovic":
-#         no=1
-#         access=2
-#     else:
-#         no=2
-#         access=1
-
-#     db.session.add(Repo(title=title,desc=desc,repoOwner=no,repoLocation=fname))
-
-#     last=db.session.query(Repo).order_by(Repo.repoId.desc()).first()
-    
-#     if allowAccess:
-#         db.session.add(AllowList(userId=access,repoId=last.repoId))
-
-#     db.session.commit()
-#     return jsonify(status=200)
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
